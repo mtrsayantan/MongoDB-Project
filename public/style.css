@@ -1,0 +1,74 @@
+body{
+    margin-top: 50px;
+}
+h2{
+    text-align: center;
+    text-decoration-line: underline;
+}
+.tab{
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+}
+th{
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+}
+table{
+    border-spacing: 0px;
+    width: 87%;
+}
+h4{
+    margin-bottom: 4px;
+    margin-left: 6%;
+}
+h4 a:hover{
+    color:brown;
+}
+td a,.edit{
+    text-decoration: none;
+}
+td a:hover{
+    color: cyan;
+}
+h3{
+    text-align: center;
+    text-decoration-line: underline;
+}
+form{
+    width:30%;
+    margin:auto;
+    padding: 12px;
+}
+.newtask{
+    margin-bottom: 12px;   
+}
+textarea{
+    width: 99%;
+}
+.single,.update{
+    text-align: center;
+}
+p{
+    margin:55px auto;
+    text-align: center;
+    width: 50%;
+}
+.edit{
+    text-align: center;
+    border: 2px solid red;
+    background-color: red;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 5px;
+}
+.edit:hover{
+    color: seashell;
+    box-shadow: 5px 3px 7px rgba(15, 15, 15, 0.5);
+}
+.delete:hover{
+    color: red;
+}

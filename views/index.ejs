@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Tasks</h2>
+    <h4>
+        <a href="./newTask">New Task</a>
+    </h4>
+    <table class=tab>
+        <thead>
+            <tr>
+                <th>Task no.</th>
+                <th>Description</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0;i<tasks.length;i++){ %>
+            <tr>
+                <td><%=i+1 %></td>
+                <td><a href="/<%=tasks[i]._id %>">view</a></td>
+                <td><%=tasks[i].Completed %></td>
+                <td><a href="" class="delete" data-doc="<%= tasks[i]._id %>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script>
+        if(window.location.pathname == "/"){
+            $delete = $(".tab tbody td a.delete");
+            $delete.click(function(){
+                var id = $(this).attr("data-doc")
+                var request = {
+                    "url":`/${id}`,
+                    "method":"DELETE"
+                }
+                if(confirm("Do you really want to delete this task?")){
+                    $.ajax(request).done(function(response){
+                        location.reload()
+                    })
+                }
+            })
+        }    
+    </script>
+</body>
+</html>
